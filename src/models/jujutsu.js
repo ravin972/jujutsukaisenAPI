@@ -19,6 +19,7 @@ const jujutsuKaisenSchema = new mongoose.Schema({
     },
     powers:{
         type: String,
+        trim: true
     }
 })
 

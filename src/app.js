@@ -5,12 +5,16 @@ const JujutsuKaisen = require("../src/models/jujutsu");
 const app = express();
 const port = process.env.port || 3000;
 
+app.use(express.json());
+
 // Handling post requests
 app.post("/jujutsu", async(req, res) => {
     try {
-        
+        const addingJujutsu = new JujutsuKaisen(req.body);
+        console.log(req.body);
+        addingJujutsu.save();
     } catch (e) {
-        
+        res.send(e);
     }
 })
 
